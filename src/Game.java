@@ -42,7 +42,7 @@ public class Game {
 	 */
 	private void init(JsonObject game) throws Exception {
 		
-		this.name    = game.getString("name");		
+		this.name = game.getString("name");		
 		JsonArray playersArray = game.getJsonArray("players");
 		
 		for (int i = 0; i < playersArray.size(); i++) {
@@ -151,20 +151,36 @@ public class Game {
 	
 	private String processResult(Judge judge) {
 		
-		String result = new String("");
+		String result = new String("Game: "+ this.name);
+		result += new String(" - ");
 		
 		switch (judge.adjudicate(this.players)) {
 		
 			case WIN:
-				result = judge.getWinner() + " ganhou o jogo";
+				result += judge.getWinner().getName() + "("+ judge.getWinner().getItem().translatePortuguese() +") ganhou o jogo";
 				break;
 				
 			case TIE_GAME:
-				result = "Houve empate entre os jogadores: "+ judge.getTieGame();
+				PlayersList winners = judge.getWinners();
+				String winnersName  = new String("");
+				ListIterator<Player> itWinners = winners.listIterator();
+				
+				while (itWinners.hasNext()) {
+					
+					Player winner = (Player) itWinners.next();
+					winnersName  += winner.getName();
+					winnersName  += "("+ winner.getItem().translatePortuguese() +")";
+					
+					if(itWinners.hasNext()) {
+						winnersName += new String(", ");
+					}
+				}
+				
+				result += "Houve empate entre os jogadores: "+ winnersName;
 				break;
 	
 			default:
-				result = "Não houve ganhadores";
+				result += "Não houve ganhadores";
 				break;
 		}
 		
