@@ -1,9 +1,9 @@
 import java.util.ListIterator;
-
-import itens.Item;
+import itens.ItemInteface;
 
 public class Judge {
 
+	Player winner;
 	PlayersList winners = new PlayersList();
 	PlayersList loosers = new PlayersList();
 	
@@ -14,8 +14,8 @@ public class Judge {
 		while (itPlayers.hasNext()) {
 			
 			Player player  = (Player) itPlayers.next();
-			Item itemWin   = player.getItem().getWinTo();
-			Item itemLoose = player.getItem().getLooseTo();
+			ItemInteface itemWin   = player.getItem().getWinTo();
+			ItemInteface itemLoose = player.getItem().getLooseTo();
 			
 			ListIterator<Player> itAnotherPlayers = players.listIterator();
 			
@@ -25,29 +25,49 @@ public class Judge {
 				
 				if(!player.equals(anotherPlayer)) {
 					
-					if(anotherPlayer.equals(itemWin)) {
+					if(anotherPlayer.getItem().typeOf().equals(itemWin.typeOf())) {
+						this.winners.remove(player);
 						this.winners.add(player);
 					}
 					
-					if(anotherPlayer.equals(itemLoose)) {
+					if(anotherPlayer.getItem().typeOf().equals(itemLoose.typeOf())) {
+						this.loosers.remove(player);
 						this.loosers.add(player);
-						this.winners.remove(player);
 					}
 				}
 			}
 		}
 		
-		if(this.winners.size() > 1) {
-			return Game.TIE_GAME;
+		if(!this.loosers.isEmpty()) {
+			
+			ListIterator<Player> itLoosers = this.loosers.listIterator();
+			
+			while (itLoosers.hasNext()) {
+				
+				Player pLooser = (Player) itLoosers.next();
+				this.winners.remove(pLooser);
+			}
+		}
+		
+		if(this.winners.isEmpty()) {
+			return -1;
 		}
 		
 		if(this.winners.size() == 1) {
+			this.winner = this.winners.get(0);
 			return Game.WIN;
 		}
 		
-		return -1;
+		return Game.TIE_GAME;
 	}
 	
+	/**
+	 * @return the winner
+	 */
+	public Player getWinner() {
+		return winner;
+	}
+
 	/**
 	 * Return the list of players that win the game
 	 * 
@@ -73,7 +93,7 @@ public class Judge {
 	 */
 	public boolean isTieGame() {
 		
-		if(this.winners.isEmpty() && this.loosers.isEmpty()) {
+		if(!this.winners.isEmpty() && this.winners.size() > 1) {
 			return true;
 		}
 		
