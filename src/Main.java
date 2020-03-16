@@ -7,6 +7,8 @@ import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 
+import itens.ItemBuilder;
+
 public class Main {
 	
 	final static String GAME_FILE = "game.json";
@@ -31,8 +33,21 @@ public class Main {
 					throw new Exception("O jogo "+ gm.getString("name") +"não contem jogadores");
 				}
 				
-				Game g = new Game(gm, new Judge());
-				System.out.println(g.result());
+				JsonArray playersOfGame = gm.getJsonArray("players");
+				PlayersList playersList = new PlayersList();
+				
+				for (int j = 0; j < playersOfGame.size(); j++) {
+					
+					JsonObject playerObj = playersOfGame.getJsonObject(j);
+					
+					Player player = new Player(playerObj.getString("name"), ItemBuilder.create(playerObj.getString("item")));
+					playersList.add(player);
+				}
+				
+				Judge j = new Judge(new Game(playersList, gm.getString("name")));
+				System.out.print("GAME: "+ gm.getString("name"));
+				System.out.print(" - ");
+				System.out.println(j.result());
 			}
 		
 		} catch (Exception e) {

@@ -7,20 +7,13 @@ public class Judge {
 	PlayersList players = new PlayersList();
 	PlayersList winners = new PlayersList();
 	PlayersList loosers = new PlayersList();
-	
-	/**
-	 * 
-	 */
-	public Judge() {
-		super();
-	}
 
 	/**
 	 * @param players
 	 */
-	public Judge(PlayersList players) {
+	public Judge(Game game) {
 		super();
-		this.players = players;
+		this.players = game.getPlayers();
 	}
 
 	/**
@@ -90,6 +83,61 @@ public class Judge {
 		}
 		
 		return Game.TIE_GAME;
+	}
+	
+	/**
+	 * Process a result of a game
+	 * 
+	 * @return
+	 */
+	public String result() {
+		return this.processResult(this.players);
+	}
+	
+	/**
+	 * Process a result of a game
+	 * 
+	 * @return
+	 */
+	public String result(PlayersList players) {
+		return this.processResult(players);
+	}
+	
+	private String processResult(PlayersList players) {
+		
+		String result = new String("");
+		
+		switch (this.adjudicate(players)) {
+		
+			case Game.WIN:
+				result += this.getWinner().getName() + "("+ this.getWinner().getItem().translatePortuguese() +") ganhou o jogo";
+				break;
+				
+			case Game.TIE_GAME:
+				PlayersList winners = this.getWinners();
+				String winnersName  = new String("");
+				ListIterator<Player> itWinners = winners.listIterator();
+				
+				while (itWinners.hasNext()) {
+					
+					Player winner = (Player) itWinners.next();
+					winnersName  += winner.getName();
+					winnersName  += "("+ winner.getItem().translatePortuguese() +")";
+					
+					if(itWinners.hasNext()) {
+						winnersName += new String(", ");
+					}
+				}
+				
+				result += "Houve empate entre os jogadores: "+ winnersName;
+				break;
+	
+			default:
+				result += "Não houve ganhadores";
+				break;
+		}
+		
+		return result;
 	}
 	
 	/**

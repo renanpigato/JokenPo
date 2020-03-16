@@ -19,7 +19,7 @@ class JudgeJUnitJupiterTest {
 		playersList.add(p1);
 		playersList.add(p2);
 		
-		Judge jd = new Judge(playersList);
+		Judge jd = new Judge(new Game(playersList));
 		
 		assertEquals(Game.WIN, jd.adjudicate());
 		assertArrayEquals(jd.getWinner().getName().getBytes(), (new String("pl2")).getBytes());
@@ -35,7 +35,7 @@ class JudgeJUnitJupiterTest {
 		playersList.add(p1);
 		playersList.add(p2);
 		
-		Judge jd = new Judge(playersList);
+		Judge jd = new Judge(new Game(playersList));
 		
 		assertEquals(Game.WIN, jd.adjudicate());
 		assertArrayEquals(jd.getWinner().getName().getBytes(), (new String("pl1")).getBytes());
@@ -51,7 +51,7 @@ class JudgeJUnitJupiterTest {
 		playersList.add(p1);
 		playersList.add(p2);
 		
-		Judge jd = new Judge(playersList);
+		Judge jd = new Judge(new Game(playersList));
 		
 		assertEquals(Game.WIN, jd.adjudicate());
 		assertArrayEquals(jd.getWinner().getName().getBytes(), (new String("pl1")).getBytes());
@@ -69,7 +69,7 @@ class JudgeJUnitJupiterTest {
 		playersList.add(p2);
 		playersList.add(p3);
 		
-		Judge jd = new Judge(playersList);
+		Judge jd = new Judge(new Game(playersList));
 		
 		assertEquals(Game.WIN, jd.adjudicate());
 		assertArrayEquals(jd.getWinner().getName().getBytes(), (new String("pl1")).getBytes());
@@ -87,7 +87,7 @@ class JudgeJUnitJupiterTest {
 		playersList.add(p2);
 		playersList.add(p3);
 		
-		Judge jd = new Judge(playersList);
+		Judge jd = new Judge(new Game(playersList));
 		
 		// No winners
 		assertEquals(-1, jd.adjudicate());
@@ -111,7 +111,7 @@ class JudgeJUnitJupiterTest {
 		playersListWinners.add(p1);
 		playersListWinners.add(p2);
 		
-		Judge jd = new Judge(playersList);
+		Judge jd = new Judge(new Game(playersList));
 		
 		// Tie on the Game
 		assertEquals(Game.TIE_GAME, jd.adjudicate());
