@@ -1,0 +1,11 @@
+version: "3.1"
+services:
+  joken_po:
+    restart: always
+    container_name: jokenpo
+    working_dir: /home/jokenpo
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile
+    volumes:
+      - ../:/home/jokenpo
