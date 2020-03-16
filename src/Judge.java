@@ -4,9 +4,40 @@ import itens.ItemInteface;
 public class Judge {
 
 	Player winner;
+	PlayersList players = new PlayersList();
 	PlayersList winners = new PlayersList();
 	PlayersList loosers = new PlayersList();
 	
+	/**
+	 * 
+	 */
+	public Judge() {
+		super();
+	}
+
+	/**
+	 * @param players
+	 */
+	public Judge(PlayersList players) {
+		super();
+		this.players = players;
+	}
+
+	/**
+	 * Judge a game with the players of instance
+	 * 
+	 * @return
+	 */
+	public int adjudicate() {
+		return this.adjudicate(this.players);
+	}
+	
+	/**
+	 * Judge a game with the players informed
+	 * 
+	 * @param players
+	 * @return
+	 */
 	public int adjudicate(PlayersList players) {
 		
 		ListIterator<Player> itPlayers = players.listIterator();
