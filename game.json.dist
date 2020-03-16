@@ -5,7 +5,7 @@
             "players": [
                 {
                     "name": "Fulano",
-                    "item": "rock"
+                    "item": "stone"
                 },
                 {
                     "name": "Ciclano",
@@ -22,11 +22,11 @@
             "players": [
                 {
                     "name": "Fulano",
-                    "item": "rock"
+                    "item": "stone"
                 },
                 {
                     "name": "Ciclano",
-                    "item": "rocks"
+                    "item": "stone"
                 },
                 {
                     "name": "Beltrano",
