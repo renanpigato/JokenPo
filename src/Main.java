@@ -11,7 +11,7 @@ import javax.json.JsonReader;
 
 public class Main {
 	
-	final static String GAME_FILE = "game";
+	final static String GAME_FILE = "game.json";
 
 	public static void main(String[] args) {
 		
@@ -25,7 +25,7 @@ public class Main {
 			
 			JsonArray games = game.getJsonArray("game");
 			
-			for (int i = 0; i < args.length; i++) {
+			for (int i = 0; i < games.size(); i++) {
 				
 				JsonObject gm = games.getJsonObject(i);
 				
