@@ -1,0 +1,55 @@
+{
+    "game": [
+        {
+            "name": "game1",
+            "players": [
+                {
+                    "name": "Fulano",
+                    "item": "rock"
+                },
+                {
+                    "name": "Ciclano",
+                    "item": "paper"
+                },
+                {
+                    "name": "Beltrano",
+                    "item": "scissor"
+                }
+            ]
+        },
+        {
+            "name": "game2",
+            "players": [
+                {
+                    "name": "Fulano",
+                    "item": "rock"
+                },
+                {
+                    "name": "Ciclano",
+                    "item": "rocks"
+                },
+                {
+                    "name": "Beltrano",
+                    "item": "scissor"
+                }
+            ]
+        },
+        {
+            "name": "game3",
+            "players": [
+                {
+                    "name": "Fulano",
+                    "item": "paper"
+                },
+                {
+                    "name": "Ciclano",
+                    "item": "paper"
+                },
+                {
+                    "name": "Beltrano",
+                    "item": "scissor"
+                }
+            ]
+        }
+    ]
+}
