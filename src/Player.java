@@ -1,15 +1,15 @@
-import itens.Item;
+import itens.ItemInteface;
 
 public class Player {
 	
 	String name;
-	Item item;
+	ItemInteface item;
 	
 	/**
 	 * @param name
 	 * @param item
 	 */
-	public Player(String name, Item item) {
+	public Player(String name, ItemInteface item) {
 		super();
 		this.name = name;
 		this.item = item;
@@ -29,13 +29,13 @@ public class Player {
 	/**
 	 * @return the item
 	 */
-	public Item getItem() {
+	public ItemInteface getItem() {
 		return item;
 	}
 	/**
 	 * @param item the item to set
 	 */
-	public void setItem(Item item) {
+	public void setItem(ItemInteface item) {
 		this.item = item;
 	}
 }

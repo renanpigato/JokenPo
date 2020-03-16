@@ -2,17 +2,17 @@ package itens;
 
 public class ItemBuilder {
 
-	public static Item create(String type) throws Exception {
+	public static ItemInteface create(String type) throws Exception {
 		
 		switch (type) {
 		
-			case Item.PAPER:
+			case ItemInteface.PAPER:
 				return new Paper();
 				
-			case Item.STONE:
+			case ItemInteface.STONE:
 				return new Stone();
 				
-			case Item.SCISSOR:
+			case ItemInteface.SCISSOR:
 				return new Scissor();
 				
 			default:

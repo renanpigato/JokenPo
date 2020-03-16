@@ -1,16 +1,24 @@
 package itens;
 
-public class Scissor implements Item {
+public class Scissor extends Item implements ItemInteface {
 
 	@Override
-	public Item getWinTo() {
+	public ItemInteface getWinTo() {
 		return new Paper();
 	}
 
 	@Override
-	public Item getLooseTo() {
+	public ItemInteface getLooseTo() {
 		return new Stone();
 	}
 
-	
+	@Override
+	public String typeOf() {
+		return ItemInteface.SCISSOR;
+	}
+
+	@Override
+	public String translatePortuguese() {
+		return super.translatePortuguese(ItemInteface.SCISSOR);
+	}
 }
