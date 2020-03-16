@@ -1,12 +1,26 @@
 package itens;
 
-public interface Item {
+abstract class Item {
 	
-	final static String STONE   = "stone";
-	final static String PAPER   = "paper";
-	final static String SCISSOR = "scissor";
-	
-	public Item getWinTo();
-	
-	public Item getLooseTo();
+	/**
+	 * Return translate of JokenPo itens, need param
+	 * 
+	 * @param type
+	 * @return
+	 */
+	protected String translatePortuguese(String type) {
+		
+		switch (type) {
+			case ItemInteface.PAPER:
+				return new String("papel");
+
+			case ItemInteface.STONE:
+				return new String("pedra");
+				
+			case ItemInteface.SCISSOR:
+				return new String("tesoura");
+		}
+		
+		return null;
+	}
 }
