@@ -36,7 +36,8 @@ docker exec -it jokenpo bash
 ##### Run tests and Compile on container
 ```bash
 mvn clean dependency:copy-dependencies package -e
-```ls
+```
 ##### Running application
 ```bash
 /opt/java/jdk/jdk-13.0.2/bin/java -cp target/JokenPo-1.0.0.jar:target/dependency/* Main
+```
