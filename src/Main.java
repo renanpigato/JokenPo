@@ -39,9 +39,11 @@ public class Main {
 				for (int j = 0; j < playersOfGame.size(); j++) {
 					
 					JsonObject playerObj = playersOfGame.getJsonObject(j);
-					
-					Player player = new Player(playerObj.getString("name"), ItemBuilder.create(playerObj.getString("item")));
-					playersList.add(player);
+
+					playersList.add(new Player(
+						playerObj.getString("name"),
+						ItemBuilder.create(playerObj.getString("item"))
+					));
 				}
 				
 				Judge j = new Judge(new Game(playersList, gm.getString("name")));
