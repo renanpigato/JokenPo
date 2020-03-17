@@ -1,24 +1,24 @@
 package itens;
 
-public class Stone extends Item implements ItemInteface {
+public class Stone extends Item implements ItemInterface {
 
 	@Override
-	public ItemInteface getWinTo() {
+	public ItemInterface getWinTo() {
 		return new Scissor();
 	}
 
 	@Override
-	public ItemInteface getLooseTo() {
+	public ItemInterface getLooseTo() {
 		return new Paper();
 	}
 
 	@Override
 	public String typeOf() {
-		return ItemInteface.STONE;
+		return ItemInterface.STONE;
 	}
 
 	@Override
 	public String translatePortuguese() {
-		return super.translatePortuguese(ItemInteface.STONE);
+		return super.translatePortuguese(ItemInterface.STONE);
 	}	
 }

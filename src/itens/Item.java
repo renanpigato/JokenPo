@@ -11,13 +11,13 @@ abstract class Item {
 	protected String translatePortuguese(String type) {
 		
 		switch (type) {
-			case ItemInteface.PAPER:
+			case ItemInterface.PAPER:
 				return new String("papel");
 
-			case ItemInteface.STONE:
+			case ItemInterface.STONE:
 				return new String("pedra");
 				
-			case ItemInteface.SCISSOR:
+			case ItemInterface.SCISSOR:
 				return new String("tesoura");
 		}
 		
