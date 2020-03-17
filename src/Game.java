@@ -2,7 +2,8 @@ import java.util.ListIterator;
 
 public class Game {
 
-	final static int WIN = 1;
+	final static int LOOSE    = -1;
+	final static int WIN      = 1;
 	final static int TIE_GAME = 0; 
 	
 	PlayersList players = new PlayersList();
@@ -13,7 +14,6 @@ public class Game {
 	 * @param players
 	 */
 	public Game(PlayersList players) {
-		super();
 		this.players = players;
 	}
 	
@@ -23,7 +23,6 @@ public class Game {
 	 * @param name
 	 */
 	public Game(PlayersList players, String name) {
-		super();
 		this.players = players;
 		this.name = name;
 	}
@@ -63,7 +62,6 @@ public class Game {
 	 * @return
 	 */
 	public Player getPlayer(int index) {
-		//return this.players.getJsonObject(index);
 		return this.players.get(index);
 	}
 	
@@ -81,7 +79,7 @@ public class Game {
 			
 			Player player = (Player) itPlayer.next();
 			
-			if(player.getName().equals(new String(name))) {
+			if(player.getName().equals(name)) {
 				return player;
 			}
 		}
