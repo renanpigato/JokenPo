@@ -10,34 +10,39 @@ The application reads JSON file that contains the games and put result on consol
 ## Installation
 
 ### Native SO
-##### Downloading the project
-```bash
+##### Downloading the project and rename game's file
+```Shell
 git clone https://github.com/renanpigato/JokenPo.git
+mv game.json.dist game.json
 ```
 ##### Run tests and Compile
-```bash
+```Shell
 mvn clean dependency:copy-dependencies package -e
 ```
 ##### Running application
-```bash
+```Shell
 java -cp target/JokenPo-1.0.0.jar:target/dependency/* Main
 ```
 
 ### Using Docker
-##### Downloading the project
-```bash
+##### Downloading the project and rename game's file
+```Shell
 git clone https://github.com/renanpigato/JokenPo.git
+mv game.json.dist game.json
 ```
 ##### Initialize the container whith dependencies
-```bash
+```Shell
 docker-compose -f docker/docker-compose.yml up -d
 docker exec -it jokenpo bash
 ```
 ##### Run tests and Compile on container
-```bash
+```Shell
 mvn clean dependency:copy-dependencies package -e
 ```
 ##### Running application
-```bash
+```Shell
 /opt/java/jdk/jdk-13.0.2/bin/java -cp target/JokenPo-1.0.0.jar:target/dependency/* Main
 ```
+
+## Tests
+Tests are built on JUnit 5, the coverage is on 61,9%.
