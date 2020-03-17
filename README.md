@@ -1,3 +1,5 @@
+![Java CI with Maven](https://github.com/renanpigato/JokenPo/workflows/Java%20CI%20with%20Maven/badge.svg?branch=master)
+
 # JokenPO
 Project to judge a Joken PO game with JAVA language. 
 The application reads JSON file that contains the games and put result on console.
