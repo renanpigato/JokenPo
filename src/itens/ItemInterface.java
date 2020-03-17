@@ -1,6 +1,6 @@
 package itens;
 
-public interface ItemInteface {
+public interface ItemInterface {
 	
 	final static String STONE   = "stone";
 	final static String PAPER   = "paper";
@@ -11,14 +11,14 @@ public interface ItemInteface {
 	 * 
 	 * @return
 	 */
-	public ItemInteface getWinTo();
+	public ItemInterface getWinTo();
 	
 	/**
 	 * Method to return the item of this loose the game
 	 * 
 	 * @return
 	 */
-	public ItemInteface getLooseTo();
+	public ItemInterface getLooseTo();
 	
 	/**
 	 * Method to return type of a item
